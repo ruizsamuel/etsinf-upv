@@ -1,0 +1,27 @@
+#BlueJ package file
+objectbench.height=215
+objectbench.width=901
+package.divider.horizontal=0.5997357992073976
+package.divider.vertical=0.6991869918699187
+package.editor.height=509
+package.editor.width=1394
+package.editor.x=0
+package.editor.y=0
+package.frame.height=838
+package.frame.width=1550
+package.numDependencies=0
+package.numTargets=1
+package.showExtends=true
+package.showUses=true
+readme.height=60
+readme.name=@README
+readme.width=49
+readme.x=10
+readme.y=10
+target1.height=70
+target1.name=Test3
+target1.showInterface=false
+target1.type=ClassTarget
+target1.width=120
+target1.x=10
+target1.y=110

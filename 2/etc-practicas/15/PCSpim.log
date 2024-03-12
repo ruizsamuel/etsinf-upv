@@ -1,0 +1,209 @@
+Messages
+=========================
+SPIM Version 6.4 of January 1, 2002
+Copyright 1990-2002 by James R. Larus (larus@cs.wisc.edu).
+All Rights Reserved.
+DOS and Windows ports by David A. Carley (dac@cs.wisc.edu).
+Copyright 1997 by Morgan Kaufmann Publishers, Inc.
+See the file README for a full copyright notice.
+Loaded: D:\Universidad\2\ETC\Practicas\15\MIMOSv3.handler
+
+
+Registers
+=========================
+ PC     = 00000000     EPC    = 00000000     Cause  = 00000000     BadVAddr= 00000000
+ Status = 00000000     HI     = 00000000     LO     = 00000000
+                                 General Registers
+R0  (r0) = 00000000  R8  (t0) = 00000000  R16 (s0) = 00000000  R24 (t8) = 00000000
+R1  (at) = 00000000  R9  (t1) = 00000000  R17 (s1) = 00000000  R25 (t9) = 00000000
+R2  (v0) = 00000000  R10 (t2) = 00000000  R18 (s2) = 00000000  R26 (k0) = 00000000
+R3  (v1) = 00000000  R11 (t3) = 00000000  R19 (s3) = 00000000  R27 (k1) = 00000000
+R4  (a0) = 00000000  R12 (t4) = 00000000  R20 (s4) = 00000000  R28 (gp) = 10008000
+R5  (a1) = 00000000  R13 (t5) = 00000000  R21 (s5) = 00000000  R29 (sp) = 7fffeffc
+R6  (a2) = 00000000  R14 (t6) = 00000000  R22 (s6) = 00000000  R30 (s8) = 00000000
+R7  (a3) = 00000000  R15 (t7) = 00000000  R23 (s7) = 00000000  R31 (ra) = 00000000
+                              Double Floating Point Registers
+FP0 =00000000,00000000 FP8 =00000000,00000000 FP16=00000000,00000000 FP24=00000000,00000000
+FP2 =00000000,00000000 FP10=00000000,00000000 FP18=00000000,00000000 FP26=00000000,00000000
+FP4 =00000000,00000000 FP12=00000000,00000000 FP20=00000000,00000000 FP28=00000000,00000000
+FP6 =00000000,00000000 FP14=00000000,00000000 FP22=00000000,00000000 FP30=00000000,00000000
+                              Single Floating Point Registers
+FP0 =00000000 FP8 =00000000 FP16=00000000 FP24=00000000
+FP1 =00000000 FP9 =00000000 FP17=00000000 FP25=00000000
+FP2 =00000000 FP10=00000000 FP18=00000000 FP26=00000000
+FP3 =00000000 FP11=00000000 FP19=00000000 FP27=00000000
+FP4 =00000000 FP12=00000000 FP20=00000000 FP28=00000000
+FP5 =00000000 FP13=00000000 FP21=00000000 FP29=00000000
+FP6 =00000000 FP14=00000000 FP22=00000000 FP30=00000000
+FP7 =00000000 FP15=00000000 FP23=00000000 FP31=00000000
+
+
+Console
+=========================
+
+
+Text Segment
+=========================
+[0x00400000]        0x3c08ffff  lui $8, -1                      ; 273: li $t0, 0xffff0000
+[0x00400004]        0xa1000000  sb $0, 0($8)                    ; 274: sb $zero, 0($t0)                # inhibo interrupci�n en el HW del teclado
+[0x00400008]        0x3c01ffff  lui $1, -1                      ; 276: li $t0, 0xffff0008
+[0x0040000c]        0x34280008  ori $8, $1, 8
+[0x00400010]        0xa1000000  sb $0, 0($8)                    ; 277: sb $zero, 0($t0)                # inhibo interrupci�n en el HW de la consola
+[0x00400014]        0x3c01ffff  lui $1, -1                      ; 279: li $t0, 0xffff0010
+[0x00400018]        0x34280010  ori $8, $1, 16
+[0x0040001c]        0xa1000000  sb $0, 0($8)                    ; 280: sb $zero, 0($t0)                # inhibo interrupci�n en el HW del reloj
+[0x00400020]        0x40086000  mfc0 $8, $12                    ; 284: mfc0 $t0, $12
+[0x00400024]        0x34080503  ori $8, $0, 1283                ; 285: ori $t0, $0, 0x0503        # Interrupciones habilitadas
+[0x00400028]        0x40886000  mtc0 $8, $12                    ; 286: mtc0 $t0, $12
+[0x0040002c]        0x3c1b9000  lui $27, -28672 [salvareg]      ; 290: la $k1, salvareg                # $k1 tendr� la direcci�n de la zona para salvar reg.
+[0x00400030]        0x0c000000  jal 0x00000000 [main]           ; 291: jal main
+[0x00400034]        0x3402000a  ori $2, $0, 10                  ; 295: li $v0, 10
+[0x00400038]        0x0000000c  syscall                         ; 296: syscall                        # syscall 10 (exit)
+[0x0040003c]        0x04010000  bgez $0 0 [proceso_ocioso-0x0040003c]; 304: b proceso_ocioso
+
+        KERNEL
+[0x80000080]        0xaf610000  sw $1, 0($27)                   ; 56: sw $at,0($k1)                      # Salvo $at
+[0x80000084]        0xaf680004  sw $8, 4($27)                   ; 58: sw $t0,4($k1)                # Salvo $t0. Lo utilizaremos para direcciones
+[0x80000088]        0xaf690008  sw $9, 8($27)                   ; 59: sw $t1,8($k1)                # Salvo $t1. Lo utilizaremos para datos
+[0x8000008c]        0x401a6800  mfc0 $26, $13                   ; 63: mfc0 $k0,$13                # Copio registro de causa
+[0x80000090]        0x3348003c  andi $8, $26, 60                ; 64: andi $t0,$k0, 0x003c        # Aíslo el código de causa
+[0x80000094]        0x11000004  beq $8, $0, 16 [interrupcion-0x80000094]; 65: beq $t0,$zero,interrupcion        # Interrupción hardware?  
+[0x80000098]        0x34090020  ori $9, $0, 32                  ; 66: li $t1, 0x20                # Llamada syscall? 
+[0x8000009c]        0x1128003f  beq $9, $8, 252 [llamada-0x8000009c]; 67: beq $t1, $t0, llamada 
+[0x800000a0]        0x0401006c  bgez $0 432 [retexc-0x800000a0] ; 69: b retexc                        # Ignoro cualquier otra causa   
+[0x800000a4]        0x3c019000  lui $1, -28672                  ; 79: lw $t0,estado
+[0x800000a8]        0x8c280010  lw $8, 16($1)
+[0x800000ac]        0x34090000  ori $9, $0, 0                   ; 80: li $t1,listo
+[0x800000b0]        0x15090004  bne $8, $9, 16 [$L1-0x800000b0] ; 81: bne $t0,$t1,$L1
+[0x800000b4]        0x40087000  mfc0 $8, $14                    ; 82: mfc0 $t0, $14                # EPC
+[0x800000b8]        0x3c019000  lui $1, -28672                  ; 83: sw $t0, dirret
+[0x800000bc]        0xac28000c  sw $8, 12($1)
+[0x800000c0]        0x33481000  andi $8, $26, 4096              ; 87: andi $t0, $k0, 0x1000        # int2 pendiente?
+[0x800000c4]        0x15000006  bne $8, $0, 24 [int2-0x800000c4]; 88: bne  $t0, $zero, int2
+[0x800000c8]        0x33480800  andi $8, $26, 2048              ; 89: andi $t0, $k0, 0x800                # int1 pendiente?
+[0x800000cc]        0x15000026  bne $8, $0, 152 [int1-0x800000cc]; 90: bne  $t0, $zero, int1
+[0x800000d0]        0x33480400  andi $8, $26, 1024              ; 91: andi $t0, $k0, 0x400                # int0 pendiente?
+[0x800000d4]        0x15000018  bne $8, $0, 96 [int0-0x800000d4]; 92: bne  $t0, $zero, int0
+[0x800000d8]        0x0401005e  bgez $0 376 [retexc-0x800000d8] ; 93: b retexc                        # interrupci�n esp�rea
+[0x800000dc]        0x3c01ffff  lui $1, -1                      ; 101: li $t0, 0xffff0010
+[0x800000e0]        0x34280010  ori $8, $1, 16
+[0x800000e4]        0x34090001  ori $9, $0, 1                   ; 102: li $t1,1
+[0x800000e8]        0xa1090000  sb $9, 0($8)                    ; 103: sb $t1, 0($t0)                # CANCELO interrupci�n en el HW del reloj
+[0x800000ec]        0x3c019000  lui $1, -28672                  ; 105: lw $t1,segundos
+[0x800000f0]        0x8c290014  lw $9, 20($1)
+[0x800000f4]        0x21290001  addi $9, $9, 1                  ; 106: addi $t1,$t1,1
+[0x800000f8]        0x3c019000  lui $1, -28672                  ; 107: sw $t1,segundos                # incremento segundos
+[0x800000fc]        0xac290014  sw $9, 20($1)
+[0x80000100]        0x3c019000  lui $1, -28672                  ; 109: lw $t0,estado                # si el proceso no espera reloj, ya he acabado
+[0x80000104]        0x8c280010  lw $8, 16($1)
+[0x80000108]        0x34090001  ori $9, $0, 1                   ; 110: li $t1,espera_wait_time
+[0x8000010c]        0x15090051  bne $8, $9, 324 [retexc-0x8000010c]; 111: bne $t0,$t1,retexc
+[0x80000110]        0x3c019000  lui $1, -28672                  ; 113: lw $t0,despertador                 # despertamos el proceso?
+[0x80000114]        0x8c280018  lw $8, 24($1)
+[0x80000118]        0x3c019000  lui $1, -28672                  ; 114: lw $t1,segundos
+[0x8000011c]        0x8c290014  lw $9, 20($1)
+[0x80000120]        0x1509004c  bne $8, $9, 304 [retexc-0x80000120]; 115: bne $t0,$t1,retexc                # NO: mantengo el estado
+[0x80000124]        0x34090000  ori $9, $0, 0                   ; 116: li $t1,listo                        # S�: (segundos = despertador)
+[0x80000128]        0x3c019000  lui $1, -28672                  ; 117: sw $t1,estado                # estado proceso = listo
+[0x8000012c]        0xac290010  sw $9, 16($1)
+[0x80000130]        0x04010048  bgez $0 288 [retexc-0x80000130] ; 118: b retexc                        # fin
+[0x80000134]        0x3c019000  lui $1, -28672                  ; 123: lw $t0, estado
+[0x80000138]        0x8c280010  lw $8, 16($1)
+[0x8000013c]        0x34090002  ori $9, $0, 2                   ; 124: li $t1, espera_read_char
+[0x80000140]        0x15090044  bne $8, $9, 272 [retexc-0x80000140]; 125: bne $t0, $t1, retexc
+[0x80000144]        0x3c08ffff  lui $8, -1                      ; 126: li $t0, 0xFFFF0000
+[0x80000148]        0x81040004  lb $4, 4($8)                    ; 127: lb $a0, 4($t0)
+[0x8000014c]        0x34090000  ori $9, $0, 0                   ; 128: li $t1, 0
+[0x80000150]        0xa1090000  sb $9, 0($8)                    ; 129: sb $t1, 0($t0)
+[0x80000154]        0x34090000  ori $9, $0, 0                   ; 130: li $t1, listo
+[0x80000158]        0x3c019000  lui $1, -28672                  ; 131: sw $t1, estado
+[0x8000015c]        0xac290010  sw $9, 16($1)
+[0x80000160]        0x0401003c  bgez $0 240 [retexc-0x80000160] ; 132: b retexc                # fin
+[0x80000164]        0x3c019000  lui $1, -28672                  ; 137: lw $t0, estado
+[0x80000168]        0x8c280010  lw $8, 16($1)
+[0x8000016c]        0x34090003  ori $9, $0, 3                   ; 138: li $t1, espera_print_char
+[0x80000170]        0x15090038  bne $8, $9, 224 [retexc-0x80000170]; 139: bne $t0, $t1, retexc
+[0x80000174]        0x3c01ffff  lui $1, -1                      ; 140: li $t0, 0xFFFF0008
+[0x80000178]        0x34280008  ori $8, $1, 8
+[0x8000017c]        0xa1040004  sb $4, 4($8)                    ; 141: sb $a0, 4($t0)
+[0x80000180]        0x34090000  ori $9, $0, 0                   ; 142: li $t1, 0
+[0x80000184]        0xa1090000  sb $9, 0($8)                    ; 143: sb $t1, 0($t0)
+[0x80000188]        0x34090000  ori $9, $0, 0                   ; 144: li $t1, listo
+[0x8000018c]        0x3c019000  lui $1, -28672                  ; 145: sw $t1, estado
+[0x80000190]        0xac290010  sw $9, 16($1)
+[0x80000194]        0x0401002f  bgez $0 188 [retexc-0x80000194] ; 146: b retexc                # fin
+[0x80000198]        0x401a7000  mfc0 $26, $14                   ; 157: mfc0 $k0, $14                # EPC
+[0x8000019c]        0x235a0004  addi $26, $26, 4                ; 158: addi $k0,$k0,4
+[0x800001a0]        0x3c019000  lui $1, -28672                  ; 159: sw $k0, dirret
+[0x800001a4]        0xac3a000c  sw $26, 12($1)
+[0x800001a8]        0x3409000b  ori $9, $0, 11                  ; 163: li $t1,11                        # print_char?
+[0x800001ac]        0x1122000a  beq $9, $2, 40 [print_char-0x800001ac]; 164: beq $t1,$v0,print_char
+[0x800001b0]        0x3409000c  ori $9, $0, 12                  ; 165: li $t1,12                        # read_char?
+[0x800001b4]        0x11220011  beq $9, $2, 68 [read_char-0x800001b4]; 166: beq $t1,$v0,read_char
+[0x800001b8]        0x3409005a  ori $9, $0, 90                  ; 167: li $t1,90                        # get_version?
+[0x800001bc]        0x11220017  beq $9, $2, 92 [get_version-0x800001bc]; 168: beq $t1,$v0,get_version
+[0x800001c0]        0x3409005b  ori $9, $0, 91                  ; 169: li $t1,91                        # get_time?
+[0x800001c4]        0x11220017  beq $9, $2, 92 [get_time-0x800001c4]; 170: beq $t1,$v0,get_time
+[0x800001c8]        0x3409005c  ori $9, $0, 92                  ; 171: li $t1,92                        # wait_time?
+[0x800001cc]        0x11220018  beq $9, $2, 96 [wait_time-0x800001cc]; 172: beq $t1,$v0,wait_time
+[0x800001d0]        0x04010020  bgez $0 128 [retexc-0x800001d0] ; 173: b retexc                        # Funci�n no implementada
+[0x800001d4]        0x3c01ffff  lui $1, -1                      ; 181: li $t0, 0xFFFF0008
+[0x800001d8]        0x34280008  ori $8, $1, 8
+[0x800001dc]        0x34090002  ori $9, $0, 2                   ; 182: li $t1, 2
+[0x800001e0]        0xa1090000  sb $9, 0($8)                    ; 183: sb $t1, 0($t0)
+[0x800001e4]        0x3c019000  lui $1, -28672 [estado]         ; 185: la $t0, estado
+[0x800001e8]        0x34280010  ori $8, $1, 16 [estado]
+[0x800001ec]        0x34090003  ori $9, $0, 3                   ; 186: li $t1, espera_print_char
+[0x800001f0]        0xad090000  sw $9, 0($8)                    ; 187: sw $t1, 0($t0)
+[0x800001f4]        0x04010017  bgez $0 92 [retexc-0x800001f4]  ; 189: b retexc
+[0x800001f8]        0x3c08ffff  lui $8, -1                      ; 195: li $t0, 0xFFFF0000
+[0x800001fc]        0x34090002  ori $9, $0, 2                   ; 196: li $t1, 2
+[0x80000200]        0xa1090000  sb $9, 0($8)                    ; 197: sb $t1, 0($t0)
+[0x80000204]        0x3c019000  lui $1, -28672 [estado]         ; 199: la $t0, estado
+[0x80000208]        0x34280010  ori $8, $1, 16 [estado]
+[0x8000020c]        0x34090002  ori $9, $0, 2                   ; 200: li $t1, espera_read_char
+[0x80000210]        0xad090000  sw $9, 0($8)                    ; 201: sw $t1, 0($t0)
+[0x80000214]        0x0401000f  bgez $0 60 [retexc-0x80000214]  ; 203: b retexc
+[0x80000218]        0x34020003  ori $2, $0, 3                   ; 209: li $v0,3
+[0x8000021c]        0x0401000d  bgez $0 52 [retexc-0x8000021c]  ; 210: b retexc
+[0x80000220]        0x3c019000  lui $1, -28672                  ; 216: lw $v0,segundos
+[0x80000224]        0x8c220014  lw $2, 20($1)
+[0x80000228]        0x0401000a  bgez $0 40 [retexc-0x80000228]  ; 217: b retexc
+[0x8000022c]        0x3c019000  lui $1, -28672                  ; 222: lw $t0,segundos
+[0x80000230]        0x8c280014  lw $8, 20($1)
+[0x80000234]        0x01044020  add $8, $8, $4                  ; 223: add $t0,$t0,$a0
+[0x80000238]        0x3c019000  lui $1, -28672                  ; 224: sw $t0,despertador
+[0x8000023c]        0xac280018  sw $8, 24($1)
+[0x80000240]        0x34080001  ori $8, $0, 1                   ; 226: li $t0,espera_wait_time
+[0x80000244]        0x3c019000  lui $1, -28672                  ; 227: sw $t0,estado
+[0x80000248]        0xac280010  sw $8, 16($1)
+[0x8000024c]        0x04010001  bgez $0 4 [retexc-0x8000024c]   ; 228: b retexc
+[0x80000250]        0x3c019000  lui $1, -28672                  ; 239: lw $t0,estado
+[0x80000254]        0x8c280010  lw $8, 16($1)
+[0x80000258]        0x34090000  ori $9, $0, 0                   ; 240: li $t1,listo
+[0x8000025c]        0x11090004  beq $8, $9, 16 [$L2-0x8000025c] ; 241: beq $t0,$t1,$L2                # Si (estado = listo), volver al proceso principal
+[0x80000260]        0x3c010040  lui $1, 64 [proceso_ocioso]     ; 243: la $k0,proceso_ocioso
+[0x80000264]        0x343a003c  ori $26, $1, 60 [proceso_ocioso]
+[0x80000268]        0x04010003  bgez $0 12 [$L3-0x80000268]     ; 244: b $L3                                # en otro caso, volver a proceso ocioso
+[0x8000026c]        0x3c019000  lui $1, -28672                  ; 246: lw $k0,dirret                # (en dirret est� la direcci�n de retorno del 
+[0x80000270]        0x8c3a000c  lw $26, 12($1)
+[0x80000274]        0x8f690008  lw $9, 8($27)                   ; 251: lw $t1, 8($k1)                # Restauro $t1
+[0x80000278]        0x8f680004  lw $8, 4($27)                   ; 252: lw $t0, 4($k1)                # Restauro $t0
+[0x8000027c]        0x8f610000  lw $1, 0($27)                   ; 254: lw $at, 0($k1)                # Restauro $at
+[0x80000280]        0x42000010  rfe                             ; 256: rfe                        # restaurar bits KU/IE
+[0x80000284]        0x03400008  jr $26                          ; 257: jr $k0
+
+
+Data Segment
+=========================
+
+        DATA
+[0x10000000]...[0x10040000]        0x00000000
+
+        STACK
+[0x7fffeffc]                        0x00000000
+
+        KERNEL DATA
+[0x90000000]...[0x90010000]        0x00000000
+
+

@@ -1,0 +1,104 @@
+### ESTRUCTURA DE COMPUTADORES (ETS Eng. Inf.)
+##  
+## marzo de 2014
+##
+## PRÁCTICA 13: SINCRONIZACIÓN POR INTERRUPCIONES
+
+
+##############################################################
+##              ÁREA DE DATOS DEL MANEJADOR                 ##
+##############################################################
+
+.kdata
+
+contexto: .space 16
+
+#############################################################
+##                  CÓDIGO DEL MANEJADOR                   ##
+#############################################################
+
+.ktext 0x80000080
+
+    ## Preserva el contexto del programa de usuario
+    mfc0 $k0, $14
+
+    la $k1, contexto
+
+    .set noat
+    sw $at, 0($k1)
+    .set at
+    sw $t0, 4($k1)
+    sw $v0, 8($k1)
+    sw $a0, 12($k1)
+
+    ## Identifica y trata excepciones
+
+    mfc0 $t0, $13 # Lee registro de Causa
+    andi $v0, $t0, 0x003c # Aísla el código*4
+    beq $v0, $zero, int # Compara con 0 y salta a int:
+    b retexc
+
+int:
+
+    andi $v0, $t0, 0x400 # IP0
+    bne $v0, $zero, int0
+    andi $v0, $t0, 0x1000 # IP2
+    bne $v0, $zero, int2
+    b retexc
+
+int0:
+
+    li $v0,11
+    li $a0, '*'
+    syscall
+
+    li $t0, 0xFFFF0000
+    lw $a0, 4($t0)
+
+    b retexc
+
+int2:
+
+    li $t0, 0xFFFF0010
+	li $a0, 1
+	sb $a0 0($t0)
+		
+	b retexc
+
+retexc:
+    ## Restaura el contexto
+    .set noat
+    lw $at, 0($k1)
+    .set at
+    lw $t0, 4($k1)
+    lw $v0, 8($k1)
+    lw $a0, 12($k1)
+
+	rfe     # Restaura el modo usuario
+	jr $k0  # Fin del manejador
+
+#############################################################
+##                    CÓDIGO DE INICIO                     ##
+#############################################################
+
+          .text
+          .globl __start 
+__start: 
+    ## Código de inicio
+    li $t0, 0x503       # Habilita las interrupciones y fija la máscara para solo habilitar las de teclado
+    mtc0 $t0, $12       # Mueve el valor de $t0 al registro de estado del coprocesador 0
+
+    la $t0, 0xFFFF0000 # Carga la dirección del registro de control de teclado
+    li $t1, 2
+    sb $t1, 0($t0)  # Habilita el bit E en el registro de estado de la interfaz de teclado
+
+    la $t0, 0xFFFF0010 # Carga la dirección del registro de control de teclado
+    li $t1, 1
+    sb $t1, 0($t0)  # Habilita el bit E en el registro de estado de la interfaz de teclado
+
+    ## Salto al programa de usuario
+	jal main
+
+    ## Código de terminación
+	li $v0, 10
+	syscall	 # Función exit

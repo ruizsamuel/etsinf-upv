@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=MainExam
+comment0.text=\r\n\ Clase\ MainExam\:\ clase\ programa\ que\ usa\ la\ clase\ others.Point,\ \r\n\ identica\ a\ tu\ clase\ Point\ con\ el\ metodo\ yIntercept(double,\ Point)\ correcto.\ \r\n\ \r\n\ @author\ IIP\r\n\ @version\ Curso\ 2021-22\r\n
+comment1.params=
+comment1.target=MainExam()
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+numComments=3

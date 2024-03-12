@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=TestInsertPos
+comment0.text=\n\ Clase\ programa\ para\ facilitar\ la\ prueba\ del\ codigo,\ desarrollado\ por\ \n\ el\ alumno,\ para\ el\ metodo\ insertPos.\n\ El\ main\ crea\ una\ secuencia\ con\ 3\ cuadrados\ de\ igual\ tamanyo\ superpuestos\:\n\ gris\ en\ el\ origen,\ verde\ desplazado\ a\ la\ derecha\ y\ arriba\ y\ rojo\ tambien\ \ \n\ desplazado\ a\ la\ derecha\ y\ arriba\:\ Gris\ ->\ Verde\ ->\ Rojo.\n\ Se\ realizan\ cuatro\ pruebas\ partiendo\ de\ la\ secuencia\ original\ para\ insertar\n\ en\ diferentes\ posiciones\:\n\ 1.-\ Llamar\ al\ metodo\ insertPos\ sobre\ la\ secuencia\ de\ cuadrados\ con\ una\ posicion\n\ \ \ \ \ no\ valida\ (-1)\ y\ comprobar\ que\ no\ hace\ nada.\ Seguimos\ viendo\ la\ secuencia\n\ \ \ \ \ Gris\ ->\ Verde\ ->\ Rojo.\n\ 2.-\ Llamar\ al\ metodo\ insertPos(p,\ 0)\ para\ insertar\ un\ rectangulo\ negro\n\ \ \ \ \ en\ la\ posicion\ 0,\ es\ decir\ en\ el\ frente.\ Ahora\ veremos\ la\ secuencia\n\ \ \ \ \ Gris\ ->\ Verde\ ->\ Rojo\ ->\ Negro.\n\ 3.-\ Llamar\ al\ metodo\ insertPos(p,\ 2)\ para\ insertar\ un\ rectangulo\ azul\ \n\ \ \ \ \ en\ la\ posicion\ 2,\ esto\ es,\ entre\ el\ Verde\ y\ el\ Rojo.\ Ahora\ veremos\ la\ secuencia\n\ \ \ \ \ Gris\ ->\ Verde\ ->\ Azul\ ->\ Rojo\ ->\ Negro.\n\ 4.-\ Llamar\ al\ metodo\ insertPos(p,\ 5)\ para\ insertar\ un\ rectangulo\ amarillo\n\ \ \ \ \ en\ la\ posicion\ 5,\ es\ decir,\ en\ el\ fondo.\ Ahora\ veremos\ la\ secuencia\n\ \ \ \ \ Amarillo\ ->\ Gris\ ->\ Verde\ ->\ Azul\ ->\ Rojo\ ->\ Negro.\n\ \ \ \ \ \n\ Esta\ clase\ es\ para\ uso\ particular\ del\ alumno.\ \n\ No\ se\ entrega.\n\n\ @author\ PRG\n\ @version\ Curso\ 2021-22\n
+comment1.params=
+comment1.target=TestInsertPos()
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment3.params=gd\ g
+comment3.target=void\ drawGroup(graph2D.Graph2D,\ PolygonGroupExam)
+comment3.text=\ \n\ Muestra\ en\ la\ salida\ grafica\ un\ grupo\ de\ poligonos\ dado.\n\ @param\ gd\ Graph2D,\ el\ grafo.\n\ @param\ p\ PolygonGroup,\ el\ grupo\ de\ poligonos.\n
+comment4.params=
+comment4.target=PolygonGroupExam\ makeGroup()
+comment4.text=\ \n\ Crea\ un\ grupo\ con\ 3\ cuadrados\ en\ escalera.\n\ @return\ p\ PolygonGroup,\ el\ grupo\ de\ poligonos.\n
+comment5.params=
+comment5.target=Polygon\ makeBlack()
+comment6.params=
+comment6.target=Polygon\ makeBlue()
+comment7.params=
+comment7.target=Polygon\ makeYellow()
+comment8.params=p\ q
+comment8.target=boolean\ equals(Polygon,\ Polygon)
+comment8.text=\ Comprueba\ si\ dos\ poligonos\ son\ iguales.\n\ \ @param\ p\ Polygon.\n\ \ @param\ q\ Polygoon.\n\ \ @return\ boolean,\ true\ si\ son\ iguales;\ en\ caso\ contrario,\ false.\ \n
+numComments=9

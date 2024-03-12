@@ -1,0 +1,39 @@
+Process PID: 847
+
+main function address: 0x565ff22c 
+f function address: 0x565ff1fd 
+Initialiazed global variable i_glob address: 0x56602008
+Non initialized global variable ni_glob address 
+ 1st ni_glob element address: 0x566020a0
+ Last ni_glob element address: 0x5660309f
+Initialized local variable i_loc address: 0xfffae470
+Non initialized local variable ni_loc address: 0xfffae474
+Address of funcion f parameter: 0xfffae460
+The mathematical operation result is: 0.707107
+
+ PROCESS MEMORY MAP /proc/847/maps 
+565fe000-565ff000 r--p 00000000 00:3d 562949953505064                    /mnt/d/Universidad/2/FSO/fso-practicas/8/biblio_dinamica
+565ff000-56600000 r-xp 00001000 00:3d 562949953505064                    /mnt/d/Universidad/2/FSO/fso-practicas/8/biblio_dinamica
+56600000-56601000 r--p 00002000 00:3d 562949953505064                    /mnt/d/Universidad/2/FSO/fso-practicas/8/biblio_dinamica
+56601000-56602000 r--p 00002000 00:3d 562949953505064                    /mnt/d/Universidad/2/FSO/fso-practicas/8/biblio_dinamica
+56602000-56603000 rw-p 00003000 00:3d 562949953505064                    /mnt/d/Universidad/2/FSO/fso-practicas/8/biblio_dinamica
+56603000-56604000 rw-p 00000000 00:00 0 
+568ad000-568cf000 rw-p 00000000 00:00 0                                  [heap]
+f7d6c000-f7d8c000 r--p 00000000 08:20 60886                              /usr/lib32/libc.so.6
+f7d8c000-f7f0a000 r-xp 00020000 08:20 60886                              /usr/lib32/libc.so.6
+f7f0a000-f7f8f000 r--p 0019e000 08:20 60886                              /usr/lib32/libc.so.6
+f7f8f000-f7f90000 ---p 00223000 08:20 60886                              /usr/lib32/libc.so.6
+f7f90000-f7f92000 r--p 00223000 08:20 60886                              /usr/lib32/libc.so.6
+f7f92000-f7f93000 rw-p 00225000 08:20 60886                              /usr/lib32/libc.so.6
+f7f93000-f7f9d000 rw-p 00000000 00:00 0 
+f7fa5000-f7fa7000 rw-p 00000000 00:00 0 
+f7fa7000-f7fab000 r--p 00000000 00:00 0                                  [vvar]
+f7fab000-f7fad000 r-xp 00000000 00:00 0                                  [vdso]
+f7fad000-f7fae000 r--p 00000000 08:20 60883                              /usr/lib32/ld-linux.so.2
+f7fae000-f7fd3000 r-xp 00001000 08:20 60883                              /usr/lib32/ld-linux.so.2
+f7fd3000-f7fe2000 r--p 00026000 08:20 60883                              /usr/lib32/ld-linux.so.2
+f7fe2000-f7fe4000 r--p 00034000 08:20 60883                              /usr/lib32/ld-linux.so.2
+f7fe4000-f7fe5000 rw-p 00036000 08:20 60883                              /usr/lib32/ld-linux.so.2
+fff8f000-fffb0000 rw-p 00000000 00:00 0                                  [stack]
+ ---------------
+

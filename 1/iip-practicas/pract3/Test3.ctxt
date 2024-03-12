@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Test3
+comment0.text=\r\n\ \ Clase\ Test3.\r\n\ \ Una\ primera\ clase\ con\ lectura\ de\ datos\ desde\ teclado,\ \r\n\ \ y\ uso\ de\ operaciones\ con\ int,\ long,\ Math\ y\ String.\r\n\ \ Contiene\ tres\ errores\ de\ compilacion.\r\n\ \ @author\ IIP\ \r\n\ \ @version\ Curso\ 2021-22\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

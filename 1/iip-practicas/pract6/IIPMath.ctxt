@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=IIPMath
+comment0.text=\r\n\ Clase\ IIPMath\:\ clase\ de\ utilidades\ que\ implementa\ algunas\ operaciones\ \r\n\ matematicas\:\ IIPMath.sqrt(double)\ y\ IIPMath.log(double).\r\n\r\n\ @author\ IIP\r\n\ @version\ Curso\ 2021-2022\r\n
+comment1.params=
+comment1.target=IIPMath()
+comment1.text=No\ se\ pueden\ crear\ objetos\ de\ esta\ clase.
+comment2.params=x\ epsilon
+comment2.target=double\ sqrt(double,\ double)
+comment2.text=\r\n\ Devuelve\ la\ ra\u00EDz\ cuadrada\ de\ x\ >\=\ 0,\ con\ error\ epsilon\ >\ 0.\ \r\n\ @param\ x.\ El\ valor,\ que\ debe\ ser\ mayor\ o\ igual\ a\ 0\r\n\ @param\ epsilon.\ Error\ m\u00E1ximo\ aceptado\ para\ el\ c\u00E1lculo\r\n\ @return\ double.\ La\ raiz\ cuadrada\ aproximada\ de\ x\ con\ error\ m\u00E1ximo\ \u00E9psilon\r\n
+comment3.params=x
+comment3.target=double\ sqrt(double)
+comment3.text=\r\n\ Devuelve\ la\ ra\u00EDz\ cuadrada\ de\ x\ >\=\ 0,\ con\ error\ 1e-15.\ \r\n\ @param\ x.\ El\ valor,\ que\ debe\ ser\ mayor\ o\ igual\ a\ 0\r\n\ @return\ double.\ La\ raiz\ cuadrada\ aproximada\ de\ x\ con\ error\ m\u00E1ximo\ 1e-15\r\n
+comment4.params=z\ epsilon
+comment4.target=double\ logBase(double,\ double)
+comment4.text=\r\n\ Devuelve\ log(z),\ 1/2\ <\=\ z\ <\ 1,\ con\ error\ epsilon\ >\ 0.\r\n\ @param\ z.\ El\ valor,\ que\ debe\ estar\ comprendido\ entre\ 1/2\ y\ 1\r\n\ @param\ epsilon.\ Error\ m\u00E1ximo\ aceptado\ para\ el\ c\u00E1lculo\r\n\ @return\ double.\ El\ logaritmo\ naatural\ aproximado\ de\ z\ con\ error\ m\u00E1ximo\ \u00E9psilon\r\n
+comment5.params=x\ epsilon
+comment5.target=double\ log(double,\ double)
+comment5.text=\r\n\ Devuelve\ log(x),\ x\ >\ 0,\ con\ error\ epsilon\ >\ 0.\r\n\ @param\ x.\ El\ valor,\ que\ debe\ ser\ mayor\ que\ 0\r\n\ @param\ epsilon.\ Error\ m\u00E1ximo\ aceptado\ para\ el\ c\u00E1lculo\r\n\ @return\ double.\ El\ logaritmo\ naatural\ aproximado\ de\ x\ con\ error\ m\u00E1ximo\ \u00E9psilon\r\n
+comment6.params=x
+comment6.target=double\ log(double)
+comment6.text=\r\n\ Devuelve\ log(x),\ x\ >\ 0,\ con\ error\ 1e-15.\r\n\ @param\ x.\ El\ valor,\ que\ debe\ ser\ mayor\ que\ 0\r\n\ @return\ double.\ El\ logaritmo\ naatural\ aproximado\ de\ x\ con\ error\ m\u00E1ximo\ 1e-15\r\n
+numComments=7

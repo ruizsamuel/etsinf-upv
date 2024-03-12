@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=SortedRegister
+comment0.text=\r\n\ Clase\ SortedRegister\:\ Un\ SortedRegister\ contiene\ un\ array\ bidimensional\ m\ en\ el\ que\ las\ filas\ \r\n\ son\ meses\ y\ las\ columnas\ los\ dias\ de\ cada\ mes\ de\ manera\ que\ m[f][c]\ corresponde\ a\ la\ cantidad\ \ \r\n\ de\ accidentes\ acumulados\ el\ dia\ c\ del\ mes\ f.\ \r\n\ La\ clase\ contiene\ los\ metodos\ necesarios\ para\ volcar\ la\ informacion\ leida\ desde\ un\ \r\n\ Scanner\ sobre\ la\ matriz\ y,\ a\ su\ vez,\ volcar\ la\ informacion\ de\ la\ matriz\ en\ un\ \r\n\ PrintWriter.\r\n\ @author\ (PRG.\ ETSINF\ -\ UPV)\ \r\n\ @version\ (2021/22)\ \ \r\n
+comment1.params=dataYear
+comment1.target=SortedRegister(int)
+comment1.text=\ Crea\ un\ SortedRegister\ para\ el\ a\u00F1o\ dataYear.\r\n\ \ @param\ dataYear\ int.\r\n
+comment2.params=sc
+comment2.target=int\ add(java.util.Scanner)
+comment2.text=\ Clasifica\ ordenadamente\ los\ datos\ leidos\ del\ Scanner\ sc,\ linea\ a\ linea.\r\n\ \ Precondicion\:\ En\ cada\ linea\ de\ s\ los\ datos\ deben\ tener\ la\ forma\r\n\ \ \ \ \ \ \ \ dia\ mes\ cantidad\r\n\ \ en\ donde\ dia\ y\ mes\ deben\ ser\ enteros\ correspondientes\ a\ una\ \r\n\ \ fecha\ valida\ del\ a\u00F1o\ de\ this,\ y\ cantidad\ debe\ ser\ un\ entero\ >\ 0.\r\n\ \ La\ cantidad\ leida\ se\ acumula\ en\ el\ registro\ que\ se\ lleva\ para\ el\ \r\n\ \ dia\ del\ mes.\ \r\n\ \ \r\n\ \ Devuelve\ el\ numero\ de\ lineas\ procesadas.\r\n\ \ \r\n\ \ @param\ sc\ Scanner\ fuente\ de\ los\ datos.\r\n\ \ @return\ int\r\n\ \ \r\n
+comment3.params=line
+comment3.target=void\ handleLine(java.lang.String)
+comment3.text=\ Metodo\ de\ ayuda\ para\ el\ metodo\ add\:\ procesa\ los\ datos\ de\ line,\ String\ \r\n\ \ correspondiente\ a\ una\ linea\ leida\ del\ Scanner.\r\n\ \ El\ formato\ de\ "line"\ debe\ tener\ la\ forma\r\n\ \ \ \ \ \ \ \ dia\ mes\ cantidad\r\n\ \ en\ donde\ dia\ y\ mes\ deben\ ser\ enteros\ correspondientes\ a\ una\ fecha\ \ \r\n\ \ valida,\ y\ cantidad\ debe\ ser\ un\ entero\ >\ 0.\r\n\ \ -\ Si\ los\ datos\ de\ la\ linea\ son\ correctos,\ la\ cantidad\ leida\ se\ acumula\r\n\ \ en\ el\ registro\ que\ se\ lleva\ para\ el\ dia\ del\ mes.\r\n\ \ -\ Si\ los\ datos\ son\ incorrectos,el\ metodo\ termina\ lanzando\ una\ excepcion.\r\n\r\n\ \ @param\ line\ String\ fuente\ de\ los\ datos.\r\n
+comment4.params=pw
+comment4.target=void\ save(java.io.PrintWriter)
+comment4.text=\ Los\ datos\ registrados\ >\ 0\ se\ escriben\ en\ pw,\ linea\ a\ linea\r\n\ \ con\ el\ formato\r\n\ \ \ \ \ \ \ \ dia\ \ mes\ \ cantidad\r\n\ \ ordenados\ cronologicamente.\r\n\ \ @param\ pw\ Printwriter\ destino\ de\ los\ datos\ ordenados.\r\n
+comment5.params=sc\ err
+comment5.target=int\ add(java.util.Scanner,\ java.io.PrintWriter)
+comment5.text=\ Clasifica\ ordenadamente\ los\ datos\ leidos\ del\ Scanner\ sc.\ Se\ filtran\r\n\ \ los\ datos\ que\ tuvieran\ algun\ defecto\ de\ formato,\ emitiendo\ un\ informe\r\n\ \ de\ errores.\ \r\n\ \ Precondicion\:\ El\ formato\ de\ linea\ reconocible\ es\r\n\ \ \ \ \ \ \ \ dia\ mes\ cantidad\r\n\ \ en\ donde\ dia\ y\ mes\ deben\ ser\ enteros\ correspondientes\ a\ una\ fecha\ \r\n\ \ valida,\ y\ cantidad\ debe\ ser\ un\ entero\ >\ 0.\r\n\ \ La\ cantidad\ leida\ se\ acumula\ en\ el\ registro\ que\ se\ lleva\ para\ \r\n\ \ el\ dia\ del\ mes.\r\n\ \ En\ err\ se\ escriben\ las\ lineas\ defectuosas,\ indicando\ el\ numero\ de\ \r\n\ \ linea.\ \ \r\n\ \ @param\ sc\ Scanner\ fuente\ de\ los\ datos.\r\n\ \ @param\ err\ PrintWriter\ destino\ del\ informe\ de\ errores.\r\n\ \ @return\ int,\ el\ numero\ de\ lineas\ procesadas.\r\n
+comment6.params=year
+comment6.target=boolean\ isLeap(int)
+comment6.text=\ Comprueba\ si\ year\ es\ bisiesto.\r\n\ \ @param\ year\ int\r\n\ \ @return\ true\ sii\ es\ bisiesto.\r\n
+numComments=7

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=IIPMath
+comment0.text=\r\n\ Clase\ IIPMath\:\ clase\ de\ utilidades\ que\ implementa\r\n\ algunas\ operaciones\ matematicas.\r\n\ \r\n\ @author\ Parcial\ 2\ -\ Ejercicio\ 1\ \r\n\ @version\ IIP\ -\ Curso\ 2021/22\r\n
+comment1.params=
+comment1.target=IIPMath()
+comment1.text=No\ se\ pueden\ crear\ objetos\ de\ este\ tipo.
+comment2.params=n
+comment2.target=double\ sumNTerms(int)
+comment2.text=\ Devuelve\ la\ suma\ de\ los\ n\ primeros\ terminos\ \ \r\n\ \ de\ la\ serie\ siguiente\:\r\n\ \ \ \ \ a_1\ \=\ Raiz\ cuadrada\ de\ 2\ \r\n\ \ \ \ \ a_i\ \=\ Raiz\ cuadrada\ de\ (2\ *\ a_(i-1))\ +\ i,\ i\ >\ 1\r\n\ \ PRECONDICION\:\ 0\ <\ n\r\n
+numComments=3

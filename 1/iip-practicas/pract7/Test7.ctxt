@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Test7
+comment0.text=\r\n\ Clase\ Test7.\ Clase\ programa\ que\ prueba\ diferentes\ acciones\ sobre\ un\r\n\ grupo\ de\ poligonos,\ facilitando\ la\ visualizacion\ del\ comportamiento\ \r\n\ de\ dichas\ acciones\ mediante\ una\ representacion\ grafica.\ \r\n\ \r\n\ @author\ IIP\ -\ Practica\ 7\r\n\ @version\ Curso\ 2021/22\r\n
+comment1.params=
+comment1.target=Test7()
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment3.params=kb
+comment3.target=int\ menu(java.util.Scanner)
+comment3.text=\r\n\ Muestra\ un\ menu\ de\ opciones\ por\ pantalla\ y\r\n\ lee\ desde\ teclado\ una\ opcion\ valida.\r\n\ @param\ kb\ Scanner,\ el\ teclado.\r\n\ @return\ int,\ la\ opcion\ valida.\r\n
+comment4.params=kb
+comment4.target=int\ submenu(java.util.Scanner)
+comment4.text=\r\n\ Muestra\ un\ submenu\ de\ opciones\ por\ pantalla\ y\r\n\ lee\ desde\ teclado\ una\ opcion\ valida.\r\n\ @param\ kb\ Scanner,\ el\ teclado.\r\n\ @return\ int,\ la\ opcion\ valida.\r\n
+comment5.params=gd\ g
+comment5.target=void\ drawGroup(graph2D.Graph2D,\ PolygonGroup)
+comment5.text=\ \r\n\ Muestra\ en\ la\ salida\ grafica\ un\ grupo\ de\ poligonos\ dado.\r\n\ @param\ gd\ Graph2D,\ el\ grafo.\r\n\ @param\ p\ PolygonGroup,\ el\ grupo\ de\ poligonos.\r\n
+numComments=6

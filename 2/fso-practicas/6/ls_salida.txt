@@ -1,0 +1,14 @@
+total 40
+drwxrwxrwx 1 samuel samuel  4096 dic  8 20:20 .
+drwxrwxrwx 1 samuel samuel  4096 nov 29 13:10 ..
+-rwxrwxrwx 1 samuel samuel  1399 nov 22 13:39 a_pipe.c
+-rwxrwxrwx 1 samuel samuel  3380 dic  8 20:20 cuestiones.md
+-rwxrwxrwx 1 samuel samuel   588 nov 22 13:39 descriptor.c
+-rwxrwxrwx 1 samuel samuel   760 nov 22 13:39 descriptor_output.c
+-rwxrwxrwx 1 samuel samuel 16120 dic  8 20:20 ls_redir
+-rwxrwxrwx 1 samuel samuel   492 dic  8 20:20 ls_redir.c
+-rwxrwxrwx 1 samuel samuel     0 dic  8 20:20 ls_salida.txt
+-rwxrwxrwx 1 samuel samuel    47 nov 22 14:08 messages.txt
+-rwxrwxrwx 1 samuel samuel    23 dic  8 20:05 output.txt
+-rwxrwxrwx 1 samuel samuel   622 nov 22 13:39 redir_output.c
+-rwxrwxrwx 1 samuel samuel   693 nov 22 13:39 share_file.c

@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=TestTranslateAll
+comment0.text=\r\n\ Clase\ programa\ para\ facilitar\ la\ prueba\ del\ codigo,\ desarrollado\ por\r\n\ el\ alumno,\ para\ el\ metodo\ translateAll.\r\n\ El\ main\ crea\ una\ secuencia\ con\ 3\ cuadrados\ en\ escalera\ superpuestos\:\r\n\ verde\ en\ el\ origen,\ rojo\ desplazado\ a\ la\ derecha\ y\ arriba\ y\ \r\n\ azul\ desplazado\ tambien\ a\ la\ derecha\ y\ arriba.\r\n\ Se\ realizan\ 6\ pruebas\ partiendo\ siempre\ de\ la\ secuencia\ original\r\n\ y\ llamando\ al\ metodo\ translateAll(Point,\ double,\ double)\ para\ ver\ que\:\r\n\ 1.-\ La\ figura\ no\ se\ modifica.\r\n\ 2.-\ El\ cuadrado\ verde\ es\ el\ unico\ que\ se\ traslada.\r\n\ 3.-\ El\ cuadrado\ rojo\ es\ el\ unico\ que\ se\ traslada.\r\n\ 4.-\ El\ cuadrado\ azul\ es\ el\ unico\ que\ se\ traslada.\r\n\ 5.-\ Se\ trasladan\ los\ cuadrados\ verde\ y\ rojo.\r\n\ 6.-\ Se\ trasladan\ los\ cuadrados\ rojo\ y\ azul.\r\n\ \r\n\ La\ prueba\ 7\ parte\ de\ la\ secuencia\ con\ 3\ cuadrados\ y\ todos\ con\ centro\ \r\n\ en\ el\ origen\ de\ coordenadas\:\ azul,\ rojo\ y\ verde.\r\n\ Se\ llama\ al\ metodo\ translateAll(Point,\ double,\ double)\ para\ ver\ que\ \r\n\ se\ trasladan\ todos.\r\n\ \r\n\ Esta\ clase\ es\ para\ uso\ particular\ del\ alumno.\ \r\n\ No\ se\ entrega.\r\n\r\n\ @author\ Parcial\ 2\ -\ Ejercicio\ 2\ \r\n\ @version\ IIP\ -\ Curso\ 2021/22\r\n
+comment1.params=
+comment1.target=TestTranslateAll()
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment3.params=gd\ g
+comment3.target=void\ drawGroup(graph2D.Graph2D,\ PolygonGroup)
+comment3.text=\ \r\n\ Muestra\ en\ la\ salida\ grafica\ un\ grupo\ de\ poligonos\ dado.\r\n\ @param\ gd\ Graph2D,\ el\ grafo.\r\n\ @param\ p\ PolygonGroup,\ el\ grupo\ de\ poligonos.\r\n
+comment4.params=prueba
+comment4.target=PolygonGroup\ makeGroup(int)
+comment4.text=\ \r\n\ Crea\ un\ grupo\ con\ 3\ cuadrados\ en\ escalera,\ segun\ la\ prueba\ a\ realizar.\r\n\ @param\ prueba\ int,\ el\ numero\ de\ prueba.\r\n\ @return\ p\ PolygonGroup,\ el\ grupo\ de\ poligonos.\r\n
+numComments=5

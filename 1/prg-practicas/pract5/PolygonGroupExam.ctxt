@@ -1,0 +1,28 @@
+#BlueJ class context
+comment0.target=PolygonGroupExam
+comment0.text=\n\ Clase\ PolygonGroupExam.\ Grupo\ de\ poligonos\ en\ el\ plano.\n\ Los\ poligonos\ estan\ en\ orden\ segun\ la\ secuencia\ en\ que\ se\ anyaden\n\ al\ grupo,\ de\ manera\ que\ se\ considera\ que\ cada\ poligono\ esta\ mas\ \n\ arriba\ en\ el\ grupo\ que\ los\ poligonos\ anteriores,\ o\ dicho\ de\ otro\ \n\ modo,\ se\ superpone\ a\ los\ anteriores.\ \n\ Se\ supone\ que\ el\ orden\ del\ grupo\ da\ la\ secuencia\ en\ que\ se\ dibujan\n\ los\ poligonos,\ de\ manera\ que\ cada\ uno\ se\ dibuja\ por\ encima\ de\ los\n\ anteriores,\ superponiendose\ a\ aquellos\ con\ los\ que\ solape.\n\ \ \n\ La\ manera\ de\ seleccionar\ un\ poligono\ es\ dando\ un\ punto\ visible\ \n\ del\ poligono,\ es\ decir,\ dando\ un\ punto\ que\ no\ pertenezca\n\ a\ los\ poligonos\ que\ aparecen\ superpuestos\ en\ el\ dibujo.\n\n\ @author\ PRG\n\ @version\ Curso\ 2021-22\n
+comment1.params=
+comment1.target=PolygonGroupExam()
+comment1.text=Crea\ un\ grupo\ de\ 0\ poligonos.
+comment2.params=pol
+comment2.target=void\ add(Polygon)
+comment2.text=\ Anyade\ al\ grupo,\ arriba\ del\ todo,\ un\ poligono\ dado.\ \n\ \ @param\ pol\ Polygon,\ el\ poligono.\n
+comment3.params=
+comment3.target=int\ getSize()
+comment3.text=\ Devuelve\ el\ numero\ de\ poligonos\ del\ grupo,\ \ \n\ \ esto\ es,\ la\ talla\ del\ grupo.\n\ \ return\ int,\ la\ talla.\n
+comment4.params=
+comment4.target=NodePol\ getFront()
+comment4.text=\ Devuelve\ la\ referencia\ al\ nodo\ con\ el\ poligono\ \ \n\ \ del\ frente\ del\ grupo.\n\ \ return\ NodePol,\ nodo\ con\ el\ poligono\ del\ frente.\n
+comment5.params=
+comment5.target=NodePol\ getBack()
+comment5.text=\ Devuelve\ la\ referencia\ al\ nodo\ con\ el\ poligono\ \n\ \ del\ fondo\ del\ grupo.\n\ \ return\ NodePol,\ nodo\ con\ el\ poligono\ del\ fondo.\n
+comment6.params=
+comment6.target=Polygon[]\ toArray()
+comment6.text=\ Devuelve\ un\ array\ con\ la\ secuencia\ de\ poligonos\ del\ grupo,\ \n\ \ por\ orden\ desde\ el\ de\ mas\ abajo\ al\ de\ mas\ arriba.\n\ \ @return\ Polygon[],\ el\ array.\n
+comment7.params=pos
+comment7.target=NodePol[]\ searchPos(int)
+comment7.text=\ Busca\ en\ el\ grupo\ el\ poligono\ que\ ocupa\ la\ posicion\ pos.\ \n\ \ Devuelve\ un\ array\ de\ NodePol\ tal\ que\:\n\ \ -\ la\ componente\ 1\ es\ el\ nodo\ con\ el\ poligono\ que\ ocupa\ la\ posicion\ pos\ \n\ \ \ \ (null\ si\ dicho\ nodo\ no\ existe)\ \ \n\ \ -\ la\ componente\ 0\ es\ el\ nodo\ anterior,\ esto\ es,\ el\ nodo\ con\ el\ poligono\n\ \ \ \ que\ ocupa\ la\ posicion\ pos\ -\ 1\ (null\ si\ no\ esta\ definido).\n\ \ @param\ pos\ int,\ la\ posicion.\ \ \ \n\ \ @return\ NodePol,\ el\ resultado.\n
+comment8.params=p\ pos
+comment8.target=void\ insertPos(Polygon,\ int)
+comment8.text=\ Inserta\ el\ poligono\ p\ en\ el\ grupo\ en\ la\ posicion\ pos.\ \n\ \ Se\ supone\ que\ los\ poligonos\ ocupan\ las\ posiciones\ 0\ a\ size\ -\ 1\ numerados\ \ \n\ \ desde\ el\ del\ frente\ hasta\ el\ del\ fondo.\ \n\ \ Solo\ son\ validas\ como\ posiciones\ de\ insercion\ los\ valores\ de\ 0\ a\ size.\n\ \ Si\ pos\ \=\ size,\ inserta\ en\ el\ fondo.\n\ \ El\ metodo\ no\ hace\ nada\ si\ pos\ es\ una\ posicion\ no\ valida.\n\ \ \n\ \ @param\ p\ Polygon,\ el\ poligono\ a\ insertar.\n\ \ @param\ pos\ int,\ la\ posicion\ de\ insercion.\n
+numComments=9

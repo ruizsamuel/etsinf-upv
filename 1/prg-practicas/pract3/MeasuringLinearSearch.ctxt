@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=MeasuringLinearSearch
+comment0.text=\ Clase\ MedidaBusquedaLineal\:\ analisis\ empirico\ del\ algoritmo\r\n\ \ de\ busqueda\ lineal.\r\n\ \ @author\ PRG\ -\ ETSInf\r\n\ \ @version\ Curso\ 2021-2022\r\n
+comment1.params=
+comment1.target=MeasuringLinearSearch()
+comment1.text=No\ hay\ objetos\ de\ esta\ clase.
+comment2.params=size
+comment2.target=int[]\ createArray(int)
+comment2.text=\ Crea\ un\ array\ de\ int\ de\ talla\ size,\ \r\n\ \ con\ valores\ crecientes\ desde\ 0\ hasta\ size-1.\r\n\ \ @param\ size\ int,\ la\ talla.\r\n\ \ @result\ int[],\ el\ array.\r\n
+comment3.params=
+comment3.target=void\ measuringLinearSearch()
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

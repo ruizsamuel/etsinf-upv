@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=MyString
+comment0.text=\r\n\ Clase\ MyString\:\ Ejercicio\ Practica\ 2\ -\ Parcial\ 1\ Lab\r\n\ \r\n\ @author\ PRG\ \r\n\ @version\ Curso\ 2021-22\r\n
+comment1.params=
+comment1.target=MyString()
+comment1.text=No\ hay\ objetos\ de\ esta\ clase
+comment2.params=c
+comment2.target=boolean\ isVowel(char)
+comment2.text=\r\n\ Devuelve\ true\ si\ el\ char\ c\ es\ una\ vocal\ y,\r\n\ en\ caso\ contrario,\ devuelve\ false.\r\n
+comment3.params=s\ c
+comment3.target=java.lang.String\ replaceVowels(java.lang.String,\ char)
+comment3.text=\r\n\ Devuelve\ el\ String\ que\ resulta\ de\ sustituir\ cada\ \r\n\ una\ de\ las\ vocales\ del\ String\ s\ por\ el\ caracter\ c.\r\n
+comment4.params=s\ c\ ini\ fin
+comment4.target=java.lang.String\ replaceVowels(java.lang.String,\ char,\ int,\ int)
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+comment5.text=\ Muestra\ el\ resultado\ del\ metodo\ para\ varios\ String\ ejemplo.\r\n\ \ Puedes\ probar\ con\ otros\ Strings.\ \ \r\n
+numComments=6

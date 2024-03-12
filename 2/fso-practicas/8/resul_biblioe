@@ -1,0 +1,26 @@
+Process PID: 842
+
+main function address: 0x80497a4 
+f function address: 0x8049775 
+Initialiazed global variable i_glob address: 0x80f1068
+Non initialized global variable ni_glob address 
+ 1st ni_glob element address: 0x80f23e0
+ Last ni_glob element address: 0x80f33df
+Initialized local variable i_loc address: 0xffa2f4e0
+Non initialized local variable ni_loc address: 0xffa2f4e4
+Address of funcion f parameter: 0xffa2f4d0
+The mathematical operation result is: 0.707107
+
+ PROCESS MEMORY MAP /proc/842/maps 
+08048000-08049000 r--p 00000000 00:3d 1407374883637031                   /mnt/d/Universidad/2/FSO/fso-practicas/8/biblio_estatica
+08049000-080bb000 r-xp 00001000 00:3d 1407374883637031                   /mnt/d/Universidad/2/FSO/fso-practicas/8/biblio_estatica
+080bb000-080ee000 r--p 00073000 00:3d 1407374883637031                   /mnt/d/Universidad/2/FSO/fso-practicas/8/biblio_estatica
+080ee000-080f1000 r--p 000a5000 00:3d 1407374883637031                   /mnt/d/Universidad/2/FSO/fso-practicas/8/biblio_estatica
+080f1000-080f3000 rw-p 000a8000 00:3d 1407374883637031                   /mnt/d/Universidad/2/FSO/fso-practicas/8/biblio_estatica
+080f3000-080f7000 rw-p 00000000 00:00 0 
+08c53000-08c75000 rw-p 00000000 00:00 0                                  [heap]
+f7fbe000-f7fc2000 r--p 00000000 00:00 0                                  [vvar]
+f7fc2000-f7fc4000 r-xp 00000000 00:00 0                                  [vdso]
+ffa11000-ffa32000 rw-p 00000000 00:00 0                                  [stack]
+ ---------------
+
