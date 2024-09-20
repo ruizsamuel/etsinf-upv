@@ -57,10 +57,8 @@ public class MonticuloBinarioEj2<E extends Comparable<E>> extends MonticuloBinar
      */
     public void borrarHojasEnRango(E x, E y) {
         for (int i = talla / 2 + 1; i <= talla; i++)
-            if (elArray[i].compareTo(x) >= 0 &&
+            while (elArray[i].compareTo(x) >= 0 &&
                 elArray[i].compareTo(y) <= 0) elArray[i] = elArray[talla--];
-
-        if (elArray[talla].compareTo(x) >= 0 && elArray[talla].compareTo(y) <= 0) talla--;
 
         arreglar();
     }
