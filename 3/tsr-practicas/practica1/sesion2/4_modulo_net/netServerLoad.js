@@ -17,7 +17,7 @@ const server = net.createServer(
             console.log('server: client disconnected');
         });
         c.on('data', (data) => {
-            c.write(JSON.stringify({server_ip: JSON.parse(data).server_ip,load: getLoad()}));
+            c.write(JSON.stringify({server_ip: JSON.parse(data).server_ip ,load: getLoad()}));
             c.end();
         });
 });

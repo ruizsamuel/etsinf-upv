@@ -361,3 +361,156 @@ client.on('end', function() {
 });
 
 ```
+
+## Sesión 3. Proxy Inverso
+
+En esta sesión se trabajará con 3 versiones de un proxy http.
+
+### 1. Proxy básico
+Cuando el cliente HTTP contacta con el proxy en el puerto 8000, el proxy redirige la petición al servidor web correspondiente y posteriormente devuelve la respuesta del servidor al cliente.
+
+Código (`proxy.js`)
+```javascript
+const net = require('net');
+const LOCAL_PORT = 8000;
+const LOCAL_IP = '127.0.0.1';
+const REMOTE_PORT = 80;
+const REMOTE_IP = '158.42.4.23'; // www.upv.es
+
+// Crea el socket que escucha conexiones (proxy)
+const server = net.createServer(function (socket) {
+
+        /* Por cada conexión, abre una conexión con el servidor remoto (upv.es)
+         *
+         * De tal manera que
+         * socket: conexión con el cliente
+         * serviceSocket: conexión con el servidor remoto
+         *
+         */
+
+        const serviceSocket = new net.Socket();
+        serviceSocket.connect(parseInt(REMOTE_PORT),
+                REMOTE_IP, function () {
+                // Escucha las peticiones del cliente, y las reenvia al remoto
+                socket.on('data', function (msg) {
+                        serviceSocket.write(msg);
+                        });
+                // Escucha las respuestas del remoto y las redirige al cliente
+                serviceSocket.on('data', function (data) {
+                        socket.write(data);
+                        });
+                });
+        }).listen(LOCAL_PORT, LOCAL_IP);
+
+console.log("TCP server accepting connection on port: " + LOCAL_PORT);
+```
+
+### 2. Proxy Configurable
+
+Ahora se podrá pasar como parámetro la dirección remota a la que redirigirá el proxy (por línea de comandos)
+
+Código (`proxy_configurable.js`)
+```javascript
+const net = require('net');
+const LOCAL_PORT = 8000;
+const LOCAL_IP = '127.0.0.1';
+
+if (process.argv.length < 3) {
+    console.error("Al menos un argumento es necesario.");
+    console.error("Uso del programa: proxy_configurable host_remoto [puerto_remoto] (por defecto: 80)");
+    process.exit();
+}
+
+const REMOTE_IP = process.argv[2];
+const REMOTE_PORT = (process.argv.length < 4) ? 80 : process.argv[3];
+
+const server = net.createServer(function (socket) {
+    const serviceSocket = new net.Socket();
+    serviceSocket.connect(parseInt(REMOTE_PORT),
+        REMOTE_IP, function () {
+            socket.on('data', function (msg) {
+                serviceSocket.write(msg);
+            });
+            serviceSocket.on('data', function (data) {
+                socket.write(data);
+            });
+        });
+}).listen(LOCAL_PORT, LOCAL_IP);
+
+console.log("TCP server accepting connection on port: " + LOCAL_PORT);
+```
+
+### 3. Proxy Programable
+
+Hemos de implementar el código del programador (`programador.js`) y hacer algunos cambios al código del nuevo proxy.
+
+- El programador debe recibir en línea de órdenes la dirección IP del proxy, y los nuevos valores de IP y puerto correspondientes al servidor. Con la IP del proxy y el puerto por defecto del proxy (puerto 8001), contactará con el proxy para enviarle los datos del servidor remoto.
+- El programador codificará los valores y los remitirá como mensaje al proxy, tras lo cual termina. Por su parte, el proxy recibirá este mensaje para actualizar la dirección del servidor al que contactará a partir de ese momento.
+- El programador.js debería enviar mensajes con un contenido como el siguiente:
+```javascript
+var msg = JSON.stringify ({'remote_ip':"158.42.4.23", 'remote_port':80})
+```
+
+Código Proxy (`proxy_prgramable.js`)
+```javascript
+const net = require('net');
+const LOCAL_PORT = 8000;
+const CONFIG_PORT = 8001;
+const LOCAL_IP = '127.0.0.1';
+
+let remote_port = -1;
+let remote_ip = '';
+
+const server = net.createServer(function (socket) {
+    if (!remote_ip || remote_port == -1) {
+        socket.write("ERROR 502. Bad Gateway");
+        socket.end();
+    } else {
+        const serviceSocket = new net.Socket();
+        serviceSocket.connect(parseInt(remote_port),
+        remote_ip, function () {
+            socket.on('data', function (msg) {
+                serviceSocket.write(msg);
+            });
+            serviceSocket.on('data', function (data) {
+                socket.write(data);
+            });
+        });
+    }
+}).listen(LOCAL_PORT, LOCAL_IP);
+
+const configServer = net.createServer(function (socket) {
+    socket.on('data', function (msg) {
+        data = JSON.parse(msg);
+        if (data.remote_ip) remote_ip = data.remote_ip;
+        if (data.remote_port) remote_port = data.remote_port;
+        socket.end();
+    });
+}).listen(CONFIG_PORT, LOCAL_IP);
+
+console.log("TCP server accepting connection on port: " + LOCAL_PORT);
+```
+
+Código Programador (`programador.js`)
+```javascript
+const net = require('net');
+
+if (process.argv.length < 5) {
+    console.error("Al menos dos argumentos son necesarios.");
+    console.error("Uso: programador.js ip_proxy nueva_ip nuevo_puerto")
+    process.exit();
+}
+
+const proxy_ip = process.argv[2];
+const server_ip = process.argv[3];
+const server_port = process.argv[4];
+
+const client = net.connect(8001, proxy_ip, function() {
+    client.write(JSON.stringify({remote_ip: server_ip, remote_port: server_port}));
+});
+
+client.on('end', function () {
+    console.log("Configuración cambiada correctamente");
+    process.exit();
+});
+```
