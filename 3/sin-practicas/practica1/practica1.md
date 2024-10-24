@@ -274,7 +274,6 @@ Como `h(n) = 3 * S(n)`, y `S(n) = 5` (2 puntos porque a 5 no le sigue la ficha 6
 
 Este tercer requisito sería el último a comprobar para verificar que la estrategia pueda considerarse de tipo A\*. Puesto que no comple el requisito anterior no tiene sentido pararse a comprar este.
 
-
 Por lo tanto, esta estrategia **no puede** considerarse de tipo A\*.
 
 
@@ -289,11 +288,13 @@ Al igual que en la pregunta anterior, puesto que se usa la `funcion_1`, que tien
 2. Heurística admisible
 
 En este caso, sí que se cumple la propiedad de admisibilidad. Ya que, si una ficha se encuentra en una columna/fila incorrecta neceritará al menos un movimiento para encontrarse en su posición correcta. Dado que la función heurística nunca sobrepasará este límite, se cumple la premisa anteriormente expuesta:
+
 $$ h(n) \leq h^*(n) $$
 
 3. Heurística consistente
 
 Para garantizar que A* sea eficiente y no requiera reexplorar nodos, la heurística h(n) también debe cumplir la propiedad de consistencia o ser monótona, que implica que
+
 $$ h(n) \leq c(n, n') + h(n') $$
 
 Donde c(n,n′) es el coste de movernos del nodo n al nodo n′. Esto asegura que la función de evaluación f(n) nunca disminuya a medida que avanzamos por el espacio de búsqueda.
