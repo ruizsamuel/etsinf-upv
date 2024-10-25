@@ -418,15 +418,15 @@ class InterfaceApp:
             main.IDA_B(initialState,main.getManhattanDistance)
             path, cost, counter, depth, runtime, nodes, max_stored = \
                 main.graphf_path, main.graphf_cost, main.graphf_counter, main.graphf_depth, main.time_graphf, main.node_counter, main.max_node_stored
-        elif str(algorithm) =='A* Piezas Descolocadas':
+        elif str(algorithm) =='Piezas Descolocadas':
             main.graphSearch(initialState,main.function_1,main.getPiezasDescolocadas)
             path, cost, counter, depth, runtime, nodes, max_stored, memory_rep = \
                 main.graphf_path, main.graphf_cost, main.graphf_counter, main.graphf_depth, main.time_graphf, main.node_counter, main.max_counter, main.max_rev_counter
-        elif str(algorithm) =='A* Secuencias':
+        elif str(algorithm) =='Secuencias':
             main.graphSearch(initialState,main.function_1,main.getSecuencias)
             path, cost, counter, depth, runtime, nodes, max_stored, memory_rep = \
                 main.graphf_path, main.graphf_cost, main.graphf_counter, main.graphf_depth, main.time_graphf, main.node_counter, main.max_counter, main.max_rev_counter
-        elif str(algorithm) =='A* Filas y Columnas':
+        elif str(algorithm) =='Filas y Columnas':
             main.graphSearch(initialState,main.function_1,main.getFilasColumnas)
             path, cost, counter, depth, runtime, nodes, max_stored, memory_rep = \
                 main.graphf_path, main.graphf_cost, main.graphf_counter, main.graphf_depth, main.time_graphf, main.node_counter, main.max_counter, main.max_rev_counter

@@ -129,34 +129,38 @@ def getEuclideanDistance(state):
 
 def getPiezasDescolocadas(state):
     tot = 0
-    for i in range(9):
-        if state[i] != end_state[i]:
-            tot+=1
+    for i in range(1, 9):
+        goal = end_state.index(str(i))
+        idx = state.index(str(i))
+        if goal != idx: tot += 1
     return tot
 
 def getSecuencias(state):
     tot = 0
-    j = 0
+    ant = 0
     for i in [1,2,5,8,7,6,3]:
         if str(state[i]) == '0':
             tot += 3
-        elif int(state[j]) + 1 == int(state[i]):
+        elif int(state[ant]) + 1 == int(state[i]):
             tot += 0
         else:
             tot += 2
-        j = i
+        ant = i
+        
+    tot = tot*3
     return tot
 
 def getFilasColumnas(state):
     tot = 0
-    filas = ['123','804','765']
-    columnas = ['187','206','345']
-
-    for i in range(9):
-        if state[i] not in filas[i // 3]:
-            tot += 1
-        if state[i] not in columnas[i % 3]:
-            tot += 1
+    for i in range(1, 9):
+        goal = end_state.index(str(i))
+        goalX = int(goal / 3)
+        goalY = goal % 3
+        idx = state.index(str(i))
+        itemX = int(idx / 3)
+        itemY = idx % 3
+        if goalX != itemX: tot+= 1
+        if goalY != itemY: tot+= 1
     return tot
 
 def function_0(x):

@@ -186,39 +186,39 @@ Antes de responder se anotan los resultados de varias configuraciones del puzzle
 
 |                 | BFS | DFS (GS)  | DFS (Back) | Voraz | ID   | A* Manh | A* Euclid | IDA* Manh | Desc | Sec  | FilCol |
 |-----------------|-----|-----------|------------|-------|------|---------|-----------|-----------|------|------|--------|
-| Nodes generated |8761 |3230       |3539        |494    |20086 |215      |286        |307        |563   |470   |395     |
-| Nodes expanded  |3250 |1812       |2269        |185    |12726 |79       |106        |196        |201   |166   |138     |
-| Max nodes stored|5118 |1817       |27          |298    |27    |135      |174        |22         |343   |293   |251     |
+| Nodes generated |8761 |3230       |3539        |494    |20086 |215      |286        |307        |503   |106   |316     |
+| Nodes expanded  |3250 |1812       |2269        |185    |12726 |79       |106        |196        |186   |37    |117     |
+| Max nodes stored|5118 |1817       |27          |298    |27    |135      |174        |22         |300   |70    |196     |
 | Solution cost   |14   |14         |14          |34     |14    |14       |14         |14         |14    |14    |14      |
 | Search depth    |15   |14         |14          |34     |14    |14       |14         |14         |14    |14    |14      |
 | Running time    |0,01s|0,01s      |0,00s       |0,00s  |0,02s |0,00s    |0,00s      |0,00s      |0,00s |0,00s |0,00s   |
 
 <table>
   <tr>
-    <td>2</td>
-    <td>8</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>6</td>
-    <td>4</td>
-  </tr>
-  <tr>
     <td>7</td>
-    <td> </td>
+    <td>8</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>0</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>3</td>
     <td>5</td>
   </tr>
 </table>
 
 |                 | BFS   | DFS (GS) | DFS (Back) | Voraz | ID      | A* Manh | A* Euclid | IDA* Manh | Desc | Sec  | FilCol |
 |-----------------|-------|----------|------------|-------|---------|---------|-----------|-----------|------|------|--------|
-| Nodes generated |233687 |158233    |435995      |82     |2198820  |706      |2781       |1409       |19105 |14080 |6418    |
-| Nodes expanded  |86871  |60265     |279820      |30     |1390965  |266      |1028       |882        |6854  |5149  |2215    |
-| Max nodes stored|110728 |60275     |43          |53     |43       |428      |1650       |35         |11178 |8104  |3917    |
-| Solution cost   |22     |22        |22          |22     |22       |22       |22         |22         |22    |22    |22      |
-| Search depth    |23     |22        |22          |22     |22       |22       |22         |22         |22    |22    |22      |
-| Running time    |0,34   |0,24 s    |0,34s       |0,00s  |1,65s    |0,01     |0,02s      |0,00s      |0,04s |0,04s |0,02s   |
+| Nodes generated |233687 |158233    |435995      |82     |2198820  |706      |2781       |1409       |17464 |457   |4384    |
+| Nodes expanded  |86871  |60265     |279820      |30     |1390965  |266      |1028       |882        |6452  |151   |1601    |
+| Max nodes stored|110728 |60275     |43          |53     |43       |428      |1650       |35         |10067 |273   |2602    |
+| Solution cost   |22     |22        |22          |22     |22       |22       |22         |22         |22    |32    |22      |
+| Search depth    |23     |22        |22          |22     |22       |22       |22         |22         |22    |32    |22      |
+| Running time    |0,34   |0,24 s    |0,34s       |0,00s  |1,65s    |0,01     |0,02s      |0,00s      |0,05s |0,00s |0,02s   |
 
 **4.1 La estrategia de búsqueda implementada con la función heurística Secuencias, ¿es un algoritmo de tipo A\*? Justifica la respuesta**
 
@@ -305,8 +305,8 @@ Debido a que las tres premisas se cumplen, puede decirse que este **algoritmo es
 
 **4.3 Compara la estrategia A\* Manhattan con Secuencias e indica cuál de las dos estrategias devuelve mejores soluciones (calidad de la solución y coste de la búsqueda).**
 
-En las dos pruebas realizadas previamente se hace evidente que a pesar de que ambos algoritmos arrojan la solución óptima (con menor número de pasos), el coste temporal (nodos expandidos) y espacial (max. nodos almacenados) es significativamente mejor en Manhattan A\*.
+En las dos pruebas realizadas previamente se hace evidente que además de que Secuencias no arroja la solución óptima (con menor número de pasos), el coste temporal (nodos expandidos) y espacial (max. nodos almacenados) es significativamente mejor en Manhattan A\*.
 
 **4.4 Compara ahora las estrategias Descolocadas y FilCol**
 
-Al igual que en el caso anterior, ambas devuelven la solución óptima, aunque la estrategia FilCol demuestra un significativamente mejor rendimiento que Descolocadas (a juzgar por las pruebas que se han realizado). No obstante, FilCol no llega a tener un rendimiento tan bueno como la mejor estrategia por ahora (Manhattan A\*).
+En este caso, ambas devuelven la solución óptima, aunque la estrategia FilCol demuestra un significativamente mejor rendimiento que Descolocadas (a juzgar por las pruebas que se han realizado). No obstante, FilCol no llega a tener un rendimiento tan bueno como la mejor estrategia por ahora (Manhattan A\*).
