@@ -138,17 +138,17 @@ def getPiezasDescolocadas(state):
 def getSecuencias(state):
     tot = 0
     ant = 0
-    for i in [1,2,5,8,7,6,3]:
-        if str(state[i]) == '0':
+    for i in [1,2,5,8,7,6,3,0]:
+        if str(state[ant]) == '0':
             tot += 3
         elif int(state[ant]) + 1 == int(state[i]):
             tot += 0
+        elif int(state[ant]) == 8 and int(state[i]) == 1:
+            tot +=0
         else:
             tot += 2
         ant = i
-        
-    tot = tot*3
-    return tot
+    return tot*3
 
 def getFilasColumnas(state):
     tot = 0

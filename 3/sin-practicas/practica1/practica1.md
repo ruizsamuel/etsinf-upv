@@ -125,16 +125,18 @@ La función de la heurística h(n) en Python quedaría tal que
 ```python
 def getSecuencias(state):
     tot = 0
-    j = 0
-    for i in [1,2,5,8,7,6,3]:
-        if str(state[i]) == '0':
+    ant = 0
+    for i in [1,2,5,8,7,6,3,0]:
+        if str(state[ant]) == '0':
             tot += 3
-        elif int(state[j]) + 1 == int(state[i]):
+        elif int(state[ant]) + 1 == int(state[i]):
             tot += 0
+        elif int(state[ant]) == 8 and int(state[i]) == 1:
+            tot +=0
         else:
             tot += 2
-        j = i
-    return tot
+        ant = i
+    return tot*3
 ```
 
 **3. Filas y Columnas**
@@ -186,9 +188,9 @@ Antes de responder se anotan los resultados de varias configuraciones del puzzle
 
 |                 | BFS | DFS (GS)  | DFS (Back) | Voraz | ID   | A* Manh | A* Euclid | IDA* Manh | Desc | Sec  | FilCol |
 |-----------------|-----|-----------|------------|-------|------|---------|-----------|-----------|------|------|--------|
-| Nodes generated |8761 |3230       |3539        |494    |20086 |215      |286        |307        |503   |106   |316     |
-| Nodes expanded  |3250 |1812       |2269        |185    |12726 |79       |106        |196        |186   |37    |117     |
-| Max nodes stored|5118 |1817       |27          |298    |27    |135      |174        |22         |300   |70    |196     |
+| Nodes generated |8761 |3230       |3539        |494    |20086 |215      |286        |307        |503   |114   |316     |
+| Nodes expanded  |3250 |1812       |2269        |185    |12726 |79       |106        |196        |186   |39    |117     |
+| Max nodes stored|5118 |1817       |27          |298    |27    |135      |174        |22         |300   |76    |196     |
 | Solution cost   |14   |14         |14          |34     |14    |14       |14         |14         |14    |14    |14      |
 | Search depth    |15   |14         |14          |34     |14    |14       |14         |14         |14    |14    |14      |
 | Running time    |0,01s|0,01s      |0,00s       |0,00s  |0,02s |0,00s    |0,00s      |0,00s      |0,00s |0,00s |0,00s   |
@@ -213,12 +215,12 @@ Antes de responder se anotan los resultados de varias configuraciones del puzzle
 
 |                 | BFS   | DFS (GS) | DFS (Back) | Voraz | ID      | A* Manh | A* Euclid | IDA* Manh | Desc | Sec  | FilCol |
 |-----------------|-------|----------|------------|-------|---------|---------|-----------|-----------|------|------|--------|
-| Nodes generated |233687 |158233    |435995      |82     |2198820  |706      |2781       |1409       |17464 |457   |4384    |
-| Nodes expanded  |86871  |60265     |279820      |30     |1390965  |266      |1028       |882        |6452  |151   |1601    |
-| Max nodes stored|110728 |60275     |43          |53     |43       |428      |1650       |35         |10067 |273   |2602    |
-| Solution cost   |22     |22        |22          |22     |22       |22       |22         |22         |22    |32    |22      |
-| Search depth    |23     |22        |22          |22     |22       |22       |22         |22         |22    |32    |22      |
-| Running time    |0,34   |0,24 s    |0,34s       |0,00s  |1,65s    |0,01     |0,02s      |0,00s      |0,05s |0,00s |0,02s   |
+| Nodes generated |233687 |158233    |435995      |82     |2198820  |706      |2781       |1409       |17464 |1543  |4384    |
+| Nodes expanded  |86871  |60265     |279820      |30     |1390965  |266      |1028       |882        |6452  |465   |1601    |
+| Max nodes stored|110728 |60275     |43          |53     |43       |428      |1650       |35         |10067 |902   |2602    |
+| Solution cost   |22     |22        |22          |22     |22       |22       |22         |22         |22    |26    |22      |
+| Search depth    |23     |22        |22          |22     |22       |22       |22         |22         |22    |29    |22      |
+| Running time    |0,34   |0,24 s    |0,34s       |0,00s  |1,65s    |0,01     |0,02s      |0,00s      |0,05s |0,01s |0,02s   |
 
 **4.1 La estrategia de búsqueda implementada con la función heurística Secuencias, ¿es un algoritmo de tipo A\*? Justifica la respuesta**
 
