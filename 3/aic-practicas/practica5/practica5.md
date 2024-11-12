@@ -1,6 +1,8 @@
 # Práctica 5. Algoritmo de Tomauslo: _Issue_ y _Writeback_
 Se pretende implementar y evaluar las etapas _Issue_ y _Writeback_ del algoritmo de gestión dinámica de instrucciones conocido como Algoritmo de Tomasulo en el simulador RISCV almacenado en `codigo`.
 
+Pueden visualizarse los resultados finales de ejecución [aquí](https://aic-practicas.netlify.app/p5/)
+
 ## Ejercicios a realizar
 
 **1. Implementación del algoritmo de Tomasulo**  

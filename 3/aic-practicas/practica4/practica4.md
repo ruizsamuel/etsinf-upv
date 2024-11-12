@@ -52,7 +52,7 @@ Se lanza a ejecución este programa con **cortocircuitos**, **_pnt_** con latenc
 ```bash
 $ ./codigo/riscv-m -j -d c -c pnt1 -a 5 -f codigo/dapy.s
 ```
-El resultado se almacenará en `resultados/ej1.htm`
+El resultado puede visualizarse [aqui](https://aic-practicas.netlify.app/p4/ej1.htm)
 
 ⇒ Analiza la ejecución de la primera iteración del bucle, accediendo al enlace Estado. Comprueba los ciclos de parada insertados para resolver las dependencias de datos y de control en el código. Responde a las siguientes preguntas sobre la ejecución del programa:
 
@@ -117,7 +117,7 @@ Se lanza a ejecución este programa con **cortocircuitos**, **_pnt_** con latenc
 ```bash
 $ ./codigo/riscv-m -j -d c -c pnt1 -a 5 -f codigo/dapyu1.s
 ```
-El resultado se almacenará en `resultados/ej2.htm`
+El resultado puede visualizarse [aqui](https://aic-practicas.netlify.app/p4/ej2.htm)
 
 ⇒ Comprueba la corrección del resultado obtenido. Anota su tiempo de ejecución y los CPI obtenidos. Cuantifica la mejora frente al programa original y relaciónala con la reducción del número de iteraciones del bucle.
 
@@ -181,7 +181,7 @@ Se lanza a ejecución este programa con **cortocircuitos**, **_pnt_** con latenc
 ```bash
 $ ./codigo/riscv-m -j -d c -c pnt1 -a 5 -f codigo/dapyu.s
 ```
-El resultado se almacenará en `resultados/ej3.htm`
+El resultado puede visualizarse [aqui](https://aic-practicas.netlify.app/p4/ej3.htm)
 
 ⇒ Comprueba la corrección del resultado obtenido. Anota su tiempo de ejecución y los CPI obtenidos. Cuantifica la mejora frente al programa original y relaciónala con la reducción del número de iteraciones del bucle.
 
@@ -251,7 +251,7 @@ Se ejecuta
 ```bash
 $ ./codigo/riscv-m -j -d c -c pnt1 -a 5 -f codigo/dapysp.s
 ```
-El resultado se almacenará en `resultados/ej4.htm`
+El resultado puede visualizarse [aqui](https://aic-practicas.netlify.app/p4/ej4.htm)
 
 ⇒ Comprueba la corrección del resultado obtenido. Anota su tiempo de ejecución y los CPI obtenidos. Cuantifica la mejora frente al programa original y relaciónala con la reducción del número de iteraciones del bucle.
 
@@ -324,7 +324,7 @@ Se ejecuta,
 ```bash
 $ ./codigo/riscv-m -j -d c -c pnt1 -a 2 -m 4 -f codigo/daxpy.s
 ```
-obteniendo las siguientes prestaciones (`resultados/ej5.htm`):
+El resultado puede visualizarse [aqui](https://aic-practicas.netlify.app/p4/ej5.htm)
 
 * Instrucciones = _608_
 * Ciclos = _850_
@@ -402,7 +402,7 @@ Se ejecuta,
 ```bash
 $ ./codigo/riscv-m -j -d c -c pnt1 -a 2 -m 4 -f codigo/daxpyu1.s
 ```
-obteniendo las siguientes prestaciones (`resultados/ej6.htm`):
+El resultado puede visualizarse [aqui](https://aic-practicas.netlify.app/p4/ej6.htm)
 
 * Instrucciones = _408_
 * Ciclos = _610_

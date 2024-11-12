@@ -1,5 +1,6 @@
 # Práctica 3. Unidad de Instrucción Segmentada II
 Durante la sesión se pretende implementar la lógica para resolver los riegos de datos y de control en un simulador de procesador segmentado (RISC V).
+Pueden visualizarse los resultados en formato [HTML](https://aic-practicas.netlify.app/p3/).
 
 ## Ejercicios a Realizar
 

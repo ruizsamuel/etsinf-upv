@@ -13,7 +13,7 @@ Se puede lanzar a ejecución mostrando resultados detallados y resolviendo riesg
 $ ./codigo/riscv-m -j -d p -c s3 -f codigo/apxpy.s
 ```
 
-Pueden verse los resultados de la ejecución en [apxpy_p_s3.htm](./resultados/apxpy_p_s3.htm)
+Pueden verse los resultados de la ejecución en [apxpy_p_s3.htm](https://aic-practicas.netlify.app/p2/apxpy_p_s3.htm)
 
 ⇒ Considera el cronograma de la primera iteración del bucle y responde a las siguientes preguntas:  
 - La contribución de las instrucciones de la primera iteración al tiempo de ejecución comprende desde el ciclo __6__ al ciclo __27__.
@@ -30,7 +30,7 @@ Se ejecuta ahora de nuevo el programa cambiando la resolución de riesgos de con
 ```bash
 $ ./codigo/riscv-m -j -d p -c pnt3 -f codigo/apxpy.s
 ```
-Pueden verse los resultados de la ejecución en [apxpy_p_pnt3.htm](./resultados/apxpy_p_pnt3.htm)
+Pueden verse los resultados de la ejecución en [apxpy_p_pnt3.htm](https://aic-practicas.netlify.app/p2/apxpy_p_pnt3.htm)
 
 ⇒ Considera el cronograma de la primera iteración del bucle y responde a las siguientes preguntas:  
 - La contribución de las instrucciones de la primera iteración al tiempo de ejecución comprende desde el ciclo __6__ al ciclo __27__.
@@ -47,7 +47,7 @@ Se ejecuta ahora de nuevo el programa cambiando la resolución de riesgos de dat
 ```bash
 $ ./codigo/riscv-m -j -d c -c pnt3 -f codigo/apxpy.s
 ```
-Pueden verse los resultados de la ejecución en [apxpy_c_pnt3.htm](./resultados/apxpy_c_pnt3.htm)
+Pueden verse los resultados de la ejecución en [apxpy_c_pnt3.htm](https://aic-practicas.netlify.app/p2/apxpy_c_pnt3.htm)
 
 ⇒ Considera el cronograma de la primera iteración del bucle y responde a las siguientes preguntas:  
 - La contribución de las instrucciones de la primera iteración al tiempo de ejecución comprende desde el ciclo __6__ al ciclo __21__.
@@ -81,7 +81,7 @@ Ejecución del nuevo código.
 ```bash
 $ ./codigo/riscv-m -j -d c -c pnt3 -f codigo/apxpy-p3.s
 ```
-Pueden verse los resultados de la ejecución en [apxpy-p3_c_pnt3.htm](./resultados/apxpy-p3_c_pnt3.htm)
+Pueden verse los resultados de la ejecución en [apxpy-p3_c_pnt3.htm](https://aic-practicas.netlify.app/p2/apxpy-p3_c_pnt3.htm)
 
 ⇒ Considera el cronograma de la primera iteración del bucle y responde a las siguientes preguntas:  
 - La contribución de las instrucciones de la primera iteración al tiempo de ejecución comprende desde el ciclo __6__ al ciclo __19__.
@@ -97,7 +97,7 @@ No ha sido necesario realizar más modificaciones para mejorar el CPI con estas 
 ```bash
 $ ./codigo/riscv-m -j -d c -c pnt1 -f codigo/apxpy-p3.s
 ```
-Pueden verse los resultados de la ejecución en [apxpy-p3_c_pnt1.htm](./resultados/apxpy-p3_c_pnt1.htm)
+Pueden verse los resultados de la ejecución en [apxpy-p3_c_pnt1.htm](https://aic-practicas.netlify.app/p2/apxpy-p3_c_pnt1.htm)
 
 ⇒ Considera el cronograma de la primera iteración del bucle y responde a las siguientes preguntas:  
 - La contribución de las instrucciones de la primera iteración al tiempo de ejecución comprende desde el ciclo __6__ al ciclo __19__.
@@ -153,4 +153,4 @@ exit:   sd t2, cont(gp)
 ```bash
 $ ./codigo/riscv-m -d c -c pnt1 -f codigo/search.s
 ```
-Pueden verse los resultados de la ejecución en [search_c_pnt1.htm](./resultados/search_c_pnt1.htm)
+Pueden verse los resultados de la ejecución en [search_c_pnt1.htm](https://aic-practicas.netlify.app/p2/search_c_pnt1.htm)
