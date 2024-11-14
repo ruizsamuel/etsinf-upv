@@ -444,5 +444,44 @@ WHERE 0 < (SELECT COUNT(*)
 ORDER BY titulo
 ```
 
+38. **Obtener el código y el nombre de cada país si se cumple que todos sus actores han actuado en al menos una película de más de 120 minutos. (Ordenados por nombre)**
+
+```sql
+SELECT pa.cod_pais, pa.nombre
+FROM pais pa
+WHERE EXISTS (SELECT 1
+              FROM actor atr
+              WHERE atr.cod_pais = pa.cod_pais) AND NOT EXISTS (SELECT 1
+                                                                FROM actor atr1
+                                                                WHERE atr1.cod_pais = pa.cod_pais AND NOT EXISTS (SELECT 1
+                                                                                                                    FROM actua act, pelicula p
+                                                                                                                    WHERE act.cod_peli = p.cod_peli AND
+                                                                                                                          p.duracion > 120 AND
+                                                                                                                          atr1.cod_act = act.cod_act))
+ORDER BY nombre
+```
+## 1.5 Consultas agrupadas
+
+39. **Obtener el código y el título del libro o libros en que se ha basado más de una película, indicando cuántas películas se han hecho sobre él.**
+
+```sql
+SELECT l.cod_lib, l.titulo, COUNT(*) AS CUANTOS
+FROM libro_peli l, pelicula p
+WHERE l.cod_lib = p.cod_lib
+GROUP BY l.cod_lib, l.titulo
+HAVING COUNT(*) > 1
+```
+
+40. **Obtener para cada género en el que se han clasificado más de 5 películas, el código y el nombre del género indicando la cantidad de películas del mismo y duración media de sus películas. (Ordenados por nombre). (La función ROUND redondea al entero más cercano).**
+
+```sql
+SELECT g.cod_gen, g.nombre, COUNT(*), ROUND(AVG(p.duracion))
+FROM genero g, pelicula p, clasificacion c
+WHERE c.cod_gen = g.cod_gen AND p.cod_peli = c.cod_peli
+GROUP BY g.cod_gen, g.nombre
+HAVING 5 < COUNT(*)
+ORDER BY nombre
+```
+
 > [!WARNING]
 > Práctica incompleta
