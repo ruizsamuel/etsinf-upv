@@ -1,0 +1,21 @@
+version: '2'
+services:
+  cli:
+    image: imclient
+    links:
+      - bro
+    environment:
+      - BROKER_HOST=bro
+      - BROKER_PORT=9998
+  wor:
+    image: imworker
+    links:
+      - bro
+    environment:
+      - BROKER_HOST=bro
+      - BROKER_PORT=9999
+  bro:
+    image: imbroker
+    expose:
+      - "9998"
+      - "9999"

@@ -208,7 +208,7 @@ El programa funcionaría de manera idéntica a excepción de que todas las etapa
 
 ### 3. Módulo HTTP
 
-**Comprobar y analizar el funcionamiento del siguiente código de un servidor Web (`ejemploSenciollo.js`)**
+**Comprobar y analizar el funcionamiento del siguiente código de un servidor Web (`ejemploSencillo.js`)**
 ```javascript
 const http = require('http');
 function dd(i) {return (i<10?"0":"")+i;}
